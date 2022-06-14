@@ -27,11 +27,7 @@ females <- filter(triUmp, gender == "F")
 
 A new  preventative aides drug (triUmpsal) is under test in clinical trials. Consider only the females, does this drug seem effective?  Hint - use dplyr to obtain that subpopulation with the filter command.
 
-```{r}
-females <- filter(triUmp, gender == "F")
-barchartGC(~infected + treatment,data=triUmp)
-barchartGC(~infected + treatment,data=triUmp, type="percent")
-```
+
 
 The plot shows that females took the placebo for aids got it less than those that took the drug meant to prevent aids. Less that 10% of the people tested got aids, but for those that did a higher percentage of them had taken the drug.
 
@@ -49,9 +45,17 @@ The plot shows that females took the placebo for aids got it less than those tha
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
 
+```{r}
+females <- filter(triUmp, gender == "F")
+barchartGC(~infected + treatment,data=triUmp)
+barchartGC(~infected + treatment,data=triUmp, type="percent")
+```
+
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+
+
 
 ## Inferential Results
 
