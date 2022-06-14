@@ -11,11 +11,29 @@ require(tigerstats)
 triUmp <-read.csv(file="triUmpsal.csv",header=TRUE)
 ```
 
+```{r eval=FALSE}
+triUmp <- triUmp %>%
+mutate(across(where(is.character), as.factor))
+```
+
+```{r}
+females <- filter(triUmp, gender == "F")
+```
+
+
 # Introduction
 
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?.  If you skimp in this section expect to be marked down in your grade. Paint a picture of the project a couple of paragraphs is expected!-->
 
 A new  preventative aides drug (triUmpsal) is under test in clinical trials. Consider only the females, does this drug seem effective?  Hint - use dplyr to obtain that subpopulation with the filter command.
+
+```{r}
+females <- filter(triUmp, gender == "F")
+barchartGC(~infected + treatment,data=triUmp)
+barchartGC(~infected + treatment,data=triUmp, type="percent")
+```
+
+The plot shows that females took the placebo for aids got it less than those that took the drug meant to prevent aids. Less that 10% of the people tested got aids, but for those that did a higher percentage of them had taken the drug.
 
 # Methods
 
