@@ -27,10 +27,6 @@ females <- filter(triUmp, gender == "F")
 
 A new  preventative aides drug (triUmpsal) is under test in clinical trials. Consider only the females, does this drug seem effective?  Hint - use dplyr to obtain that subpopulation with the filter command.
 
-
-
-The plot shows that females took the placebo for aids got it less than those that took the drug meant to prevent aids. Less that 10% of the people tested got aids, but for those that did a higher percentage of them had taken the drug.
-
 # Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
@@ -47,15 +43,23 @@ The plot shows that females took the placebo for aids got it less than those tha
 
 ```{r}
 females <- filter(triUmp, gender == "F")
-barchartGC(~infected + treatment,data=triUmp)
-barchartGC(~infected + treatment,data=triUmp, type="percent")
+barchartGC(~infected + treatment,data=females)
+barchartGC(~infected + treatment,data=females, type="percent")
 ```
+
+The plot shows that females took the placebo for aids got it less than those that took the drug meant to prevent aids. Less that 10% of the people tested got aids, but for those that did a higher percentage of them had taken the drug.
 
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+table1 <- xtabs(~infected + treatment, data=females)
+rowPerc(table1)
+colPerc(table1)
+```
 
+The table shows that abut 60% of the people who got the virus took the drug while about 40% of the poeple who contracted the virus only took a placebo. This is telling us that the drug is ineffective because more people who took the drug got aids than those who took a placebo.
 
 ## Inferential Results
 
